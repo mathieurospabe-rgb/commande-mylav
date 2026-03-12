@@ -1,1 +1,597 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commande Documents Marketing — MYLAV</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mylav-red: #D0021B;
+    --mylav-blue: #003B6F;
+    --mylav-lightblue: #1A6FAA;
+    --mylav-bg: #F2F5F9;
+    --mylav-white: #FFFFFF;
+    --mylav-gray: #E2E8F0;
+    --mylav-darkgray: #637080;
+    --mylav-text: #152030;
+    --radius: 10px;
+    --shadow: 0 2px 16px rgba(0,59,111,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--mylav-bg);
+    color: var(--mylav-text);
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--mylav-blue);
+    padding: 28px 40px 22px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    border-bottom: 5px solid var(--mylav-red);
+  }
+
+  .logo-block { display: flex; flex-direction: column; align-items: flex-start; }
+
+  .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+
+  .logo-text span { color: var(--mylav-red); }
+
+  .logo-tagline {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  .header-title { margin-left: auto; text-align: right; }
+
+  .header-title h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .header-title p { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+  main {
+    max-width: 860px;
+    margin: 36px auto 60px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--mylav-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .card-header {
+    background: var(--mylav-blue);
+    padding: 13px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-header.red { background: var(--mylav-red); }
+
+  .card-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+
+  .card-body { padding: 24px; }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .field { display: flex; flex-direction: column; gap: 5px; }
+  .field.span2 { grid-column: span 2; }
+
+  label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--mylav-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  textarea {
+    border: 1.5px solid var(--mylav-gray);
+    border-radius: 6px;
+    padding: 9px 12px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.95rem;
+    color: var(--mylav-text);
+    background: #FAFBFD;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    width: 100%;
+  }
+
+  input:focus, textarea:focus {
+    border-color: var(--mylav-lightblue);
+    box-shadow: 0 0 0 3px rgba(26,111,170,0.12);
+    background: white;
+  }
+
+  textarea { resize: vertical; min-height: 72px; }
+
+  .info-box {
+    background: #E8EFF7;
+    border-left: 4px solid var(--mylav-lightblue);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: var(--mylav-blue);
+    margin-bottom: 16px;
+  }
+
+  .info-box strong { font-weight: 700; }
+
+  .order-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+
+  .order-table thead tr { background: var(--mylav-blue); }
+
+  .order-table thead th {
+    padding: 10px 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    text-align: left;
+  }
+
+  .order-table thead th.center { text-align: center; }
+
+  .order-table tbody tr { border-bottom: 1px solid var(--mylav-gray); transition: background 0.15s; }
+  .order-table tbody tr:hover { background: #EDF3FA; }
+
+  .order-table tbody tr.subheader td {
+    background: #DDE8F4;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.73rem;
+    font-weight: 700;
+    color: var(--mylav-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 8px 14px;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .order-table tbody td { padding: 11px 14px; color: var(--mylav-text); vertical-align: middle; }
+  .order-table tbody td.center { text-align: center; }
+
+  .order-table .qty-input {
+    width: 72px;
+    text-align: center;
+    border: 1.5px solid var(--mylav-gray);
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 0.95rem;
+    font-family: 'Source Sans 3', sans-serif;
+    background: #FAFBFD;
+    color: var(--mylav-text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .order-table .qty-input:focus {
+    border-color: var(--mylav-lightblue);
+    box-shadow: 0 0 0 3px rgba(26,111,170,0.12);
+    background: white;
+  }
+
+  .order-table .notes-input {
+    width: 100%;
+    border: 1.5px solid var(--mylav-gray);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.88rem;
+    font-family: 'Source Sans 3', sans-serif;
+    background: #FAFBFD;
+    color: var(--mylav-text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .order-table .notes-input:focus { border-color: var(--mylav-lightblue); background: white; }
+
+  .item-name { font-weight: 600; color: var(--mylav-text); }
+
+  .autre-row td { background: #FFF8F0; }
+  .autre-row .autre-label-input {
+    width: 100%;
+    border: 1.5px dashed #D9A97A;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.92rem;
+    background: white;
+    outline: none;
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--mylav-text);
+  }
+
+  .submit-zone {
+    background: var(--mylav-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-top: 4px solid var(--mylav-blue);
+  }
+
+  .submit-info { font-size: 0.85rem; color: var(--mylav-darkgray); line-height: 1.6; }
+  .submit-info strong { display: block; font-size: 0.95rem; color: var(--mylav-blue); margin-bottom: 3px; }
+
+  .btn-send {
+    background: var(--mylav-red);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 13px 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .btn-send:hover { background: #A80016; transform: translateY(-1px); }
+
+  .btn-print {
+    background: var(--mylav-blue);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 13px 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .btn-print:hover { background: var(--mylav-lightblue); transform: translateY(-1px); }
+
+  .btn-reset {
+    background: transparent;
+    color: var(--mylav-darkgray);
+    border: 1.5px solid var(--mylav-gray);
+    border-radius: 7px;
+    padding: 12px 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-reset:hover { border-color: var(--mylav-red); color: var(--mylav-red); }
+
+  .btn-group { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+  @media print {
+    body { background: white; }
+    header, .card-header, .order-table thead tr { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .btn-send, .btn-print, .btn-reset { display: none !important; }
+    main { margin: 10px auto; }
+  }
+
+  @media (max-width: 600px) {
+    header { flex-direction: column; align-items: flex-start; gap: 10px; padding: 20px; }
+    .header-title { margin-left: 0; text-align: left; }
+    .form-grid { grid-template-columns: 1fr; }
+    .field.span2 { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-block">
+    <div class="logo-text">MYL<span>AV</span><sup style="font-size:0.45em;color:rgba(255,255,255,0.4);vertical-align:super">®</sup></div>
+    <div class="logo-tagline">Un laboratoire de praticiens pour des praticiens</div>
+  </div>
+  <div class="header-title">
+    <h1>Commande Documents Marketing</h1>
+    <p>Usage interne — Équipe commerciale</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- INFOS COMMERCIAL -->
+  <div class="card">
+    <div class="card-header">
+      <span>👤</span>
+      <h2>Informations du commercial</h2>
+    </div>
+    <div class="card-body">
+      <div class="form-grid">
+        <div class="field">
+          <label>Nom et prénom</label>
+          <input type="text" id="field-nom" placeholder="Ex : Marie Dupont">
+        </div>
+        <div class="field">
+          <label>Date de la commande</label>
+          <input type="date" id="field-date">
+        </div>
+        <div class="field span2">
+          <label>Adresse postale</label>
+          <input type="text" id="field-adresse" placeholder="Ex : 12 rue des Lilas, 75001 Paris">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMANDE DOCUMENTS -->
+  <div class="card">
+    <div class="card-header">
+      <span>📄</span>
+      <h2>Commande de documents</h2>
+    </div>
+    <div class="card-body">
+      <div class="info-box">
+        Indiquez la <strong>quantité souhaitée</strong> pour chaque document. Utilisez le champ <strong>Notes</strong> pour toute précision.
+      </div>
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th style="width:45%">Document</th>
+            <th class="center" style="width:14%">Quantité</th>
+            <th style="width:41%">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="subheader"><td colspan="3">📚 Catalogues des services</td></tr>
+          <tr>
+            <td><div class="item-name">Catalogue des services 2026</div></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+
+          <tr class="subheader"><td colspan="3">🧬 Algorithmes diagnostiques</td></tr>
+          <tr>
+            <td><div class="item-name">Algorithme — Lymphome</div></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+          <tr>
+            <td><div class="item-name">Algorithme — Mastocytome</div></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+          <tr>
+            <td><div class="item-name">Algorithme — Microbiote</div></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+          <tr>
+            <td><div class="item-name">Algorithme — PIF</div></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+          <tr>
+            <td><div class="item-name">Algorithme — Prurit</div></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+          <tr>
+            <td><div class="item-name">Algorithme — Tumeurs mélanocytaires</div></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+          <tr>
+            <td><div class="item-name">Algorithme — Maladies glomérulaires / EVRPS</div></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+
+          <tr class="subheader"><td colspan="3">📎 Autres documents</td></tr>
+          <tr class="autre-row">
+            <td><input type="text" class="autre-label-input" placeholder="Nom du document à préciser…"></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+          <tr class="autre-row">
+            <td><input type="text" class="autre-label-input" placeholder="Nom du document à préciser…"></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- GOODIES -->
+  <div class="card">
+    <div class="card-header red">
+      <span>🖊️</span>
+      <h2>Commande de goodies</h2>
+    </div>
+    <div class="card-body">
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th style="width:45%">Article</th>
+            <th class="center" style="width:14%">Quantité</th>
+            <th style="width:41%">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="item-name">Stylos MYLAV</div></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+          <tr>
+            <td><div class="item-name">Carnets de notes MYLAV</div></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+          <tr class="autre-row">
+            <td><input type="text" class="autre-label-input" placeholder="Autre article à préciser…"></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- COMMENTAIRES -->
+  <div class="card">
+    <div class="card-header">
+      <span>💬</span>
+      <h2>Commentaires libres</h2>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <label>Informations complémentaires, urgence, contexte…</label>
+        <textarea id="field-commentaires" placeholder="Ex : Commande urgente pour salon vétérinaire du 15/03, livraison à prévoir avant le 12…" style="min-height:90px;"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENVOI -->
+  <div class="submit-zone">
+    <div class="submit-info">
+      <strong>📩 Envoyer la commande</strong>
+      Cliquez sur le bouton pour envoyer votre commande par email.<br>
+      Un récapitulatif complet sera généré automatiquement.
+    </div>
+    <div class="btn-group">
+      <button class="btn-reset" onclick="resetForm()">↺ Réinitialiser</button>
+      <button class="btn-print" onclick="window.print()">🖨 Imprimer</button>
+      <button class="btn-send" onclick="sendByEmail()">✉ Envoyer la commande</button>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  // Date du jour par défaut
+  const dateInput = document.getElementById('field-date');
+  dateInput.value = new Date().toISOString().split('T')[0];
+
+  function resetForm() {
+    if (!confirm('Réinitialiser tous les champs du formulaire ?')) return;
+    document.querySelectorAll('input[type="text"]').forEach(el => el.value = '');
+    document.querySelectorAll('input[type="number"]').forEach(el => el.value = 0);
+    document.querySelectorAll('textarea').forEach(el => el.value = '');
+    dateInput.value = new Date().toISOString().split('T')[0];
+  }
+
+  function sendByEmail() {
+    const nom = document.getElementById('field-nom').value.trim() || '—';
+    const date = document.getElementById('field-date').value || '—';
+    const adresse = document.getElementById('field-adresse').value.trim() || '—';
+    const commentaires = document.getElementById('field-commentaires').value.trim() || '—';
+
+    // Collecte des articles avec quantité > 0
+    const rows = document.querySelectorAll('.order-table tbody tr:not(.subheader)');
+    let documentsLines = [];
+    let goodiesLines = [];
+    let inGoodies = false;
+
+    rows.forEach(row => {
+      const qtyInput = row.querySelector('.qty-input');
+      const qty = qtyInput ? parseInt(qtyInput.value) : 0;
+      // Détecter si on est dans la section goodies (après la carte rouge)
+      const card = row.closest('.card');
+      const isGoodie = card && card.querySelector('.card-header.red');
+
+      if (qty > 0 || (row.querySelector('.autre-label-input') && row.querySelector('.autre-label-input').value.trim())) {
+        if (qty <= 0) return;
+        const nameEl = row.querySelector('.item-name') || row.querySelector('.autre-label-input');
+        const notesEl = row.querySelector('.notes-input');
+        const name = nameEl ? (nameEl.tagName === 'INPUT' ? nameEl.value.trim() : nameEl.textContent.trim()) : '—';
+        const notes = notesEl ? notesEl.value.trim() : '';
+        const line = `  • ${name || '(sans nom)'} : ${qty}${notes ? '  →  ' + notes : ''}`;
+        if (isGoodie) goodiesLines.push(line);
+        else documentsLines.push(line);
+      }
+    });
+
+    const docsSection = documentsLines.length > 0 ? documentsLines.join('\n') : '  (aucun document sélectionné)';
+    const goodiesSection = goodiesLines.length > 0 ? goodiesLines.join('\n') : '  (aucun goodie sélectionné)';
+
+    const lignes = [
+      '=== COMMANDE DOCUMENTS MARKETING - MYLAV ===',
+      '',
+      '[ COMMERCIAL ]',
+      'Nom         : ' + nom,
+      'Date        : ' + date,
+      'Adresse     : ' + adresse,
+      '',
+      '[ DOCUMENTS COMMANDES ]',
+      docsSection,
+      '',
+      '[ GOODIES COMMANDES ]',
+      goodiesSection,
+      '',
+      '[ COMMENTAIRES ]',
+      commentaires,
+      '',
+      '============================================',
+      'Envoye via le formulaire de commande MYLAV'
+    ];
+
+    const corpsTexte = lignes.join('\r\n');
+    const sujet = encodeURIComponent('Commande documents marketing - ' + nom + ' - ' + date);
+    const corps = encodeURIComponent(corpsTexte);
+
+    window.location.href = 'mailto:mathieurospabe@mylav.net?subject=' + sujet + '&body=' + corps;
+  }
+</script>
+
+</body>
+</html>
+
