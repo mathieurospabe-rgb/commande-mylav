@@ -394,6 +394,11 @@
             <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
             <td><input type="text" class="notes-input" placeholder="Précision…"></td>
           </tr>
+          <tr>
+            <td><div class="item-name">Industry 2026</div></td>
+            <td class="center"><input type="number" class="qty-input" min="0" value="0"></td>
+            <td><input type="text" class="notes-input" placeholder="Précision…"></td>
+          </tr>
 
           <tr class="subheader"><td colspan="3">🧬 Algorithmes diagnostiques</td></tr>
           <tr>
@@ -505,7 +510,7 @@
       <strong>📩 Comment envoyer votre commande ?</strong>
       1. Cliquez sur <strong>"Sauvegarder en PDF"</strong> ci-contre<br>
       2. Dans la fenêtre d'impression, choisissez <strong>"Enregistrer en PDF"</strong><br>
-      3. Envoyez le PDF par email à <strong>mathieurospabe@mylav.net</strong>
+      3. Envoyez le PDF par email à <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="325f53465a5b5747405d4142535057725f4b5e53441c5c5746">[email&#160;protected]</a></strong>
     </div>
     <div class="btn-group">
       <button class="btn-reset" onclick="resetForm()">↺ Réinitialiser</button>
@@ -515,7 +520,7 @@
 
 </main>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Date du jour par défaut
   const dateInput = document.getElementById('field-date');
   dateInput.value = new Date().toISOString().split('T')[0];
@@ -523,13 +528,4 @@
   function resetForm() {
     if (!confirm('Réinitialiser tous les champs du formulaire ?')) return;
     document.querySelectorAll('input[type="text"]').forEach(el => el.value = '');
-    document.querySelectorAll('input[type="number"]').forEach(el => el.value = 0);
-    document.querySelectorAll('textarea').forEach(el => el.value = '');
-    dateInput.value = new Date().toISOString().split('T')[0];
-  }
-
-
-</script>
-
-</body>
-</html>
+    document.qu
